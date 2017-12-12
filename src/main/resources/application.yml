@@ -4,11 +4,13 @@ server:
 spring:
   profiles:
     active: "default"
+  main:
+    web-environment: true
   jta:
-      enabled: false
-      bitronix:
-        properties:
-          default-transaction-timeout: 70
+    enabled: false
+    bitronix:
+      properties:
+        default-transaction-timeout: 70
   http:
     multipart:
       max-file-size: 128MB
