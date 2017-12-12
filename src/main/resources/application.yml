@@ -1,0 +1,60 @@
+server:
+  port: 56144
+  
+spring:
+  profiles:
+    active: "default"
+  jta:
+      enabled: false
+      bitronix:
+        properties:
+          default-transaction-timeout: 70
+  http:
+    multipart:
+      max-file-size: 128MB
+      max-request-size: 128MB
+  mvc:
+    favicon:
+      enabled: false
+datasource:
+  connection:
+    host:
+    port: 3306
+    database:
+    username:
+    password:
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    validation-query: SELECT 1 FROM DUAL
+  hikari:
+    pool-name: default-jdbc-connection-pool
+    connection-timeout: 180000
+    init-active: 10
+    max-lifetime: 180000
+    maximum-pool-size: 70
+  jpa:
+    hibernate-ddl-auto: validate
+    hibernate-dialect: org.hibernate.dialect.MySQL5Dialect
+    hibernate-format-sql: true
+    hibernate-show-sql: true
+    hibernate-implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+    hibernate-pysical-name-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    entity-packages:
+      -
+        "com.example.entity"
+
+amazon:
+  credential:
+    access_key_id:
+    secret_key_id:
+  s3:
+    wave-bucket:
+    prefix:
+    log-back-prefix:
+    domain: http://ssss
+    local-log-location:
+    local-log-transfer-log:
+
+---
+spring:
+  profiles: default
